@@ -19,8 +19,15 @@ type Query {
 
     # リゾルバに書くパターン(二種類の記法あり)
     UserResolver(id: ID!): String!
-    test(id: ID): User! @field(resolver: "UserResolver@findByIdUser")
+    test(id: ID): User @field(resolver: "UserResolver@findByIdUser")
+}
 
+type Mutation {
+    testCreateUser(inputData: createUserInput! @spread): User @create
+    CreateUser(inputData: createUserInput! @spread): User!
+    updateUser(id: ID!, name: String!, email: String!): User @update
+    destroyUser(id: ID!): User @delete
+    destroyUsers(id: [ID!]!): [User] @delete
 }
 
 
@@ -51,4 +58,10 @@ type Comment {
     updated_at: DateTime!
     post: Post! @belongsTo
 
+}
+
+input createUserInput {
+    name: String!
+    email: String!
+    password: String!
 }
