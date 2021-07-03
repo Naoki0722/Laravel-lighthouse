@@ -1,29 +1,14 @@
-name: Assign auto
-
-
+name: Create Pullrequest
 on:
   pull_request:
-    branches:
-      - develop
-    types:
-      opened
-
+    types: [opened, ready_for_review]
 
 jobs:
-  assign:
-    name: Set assign
-    runs-on: ubuntu-18.04
+  build:
+    name: Create Pullrequest
+    runs-on: ubuntu-latest
     steps:
-      - name: Set assign
-        env:
-          ASSIGNEES: "${{ github.actor }}"
-          run: |
-            assignee_count=$(cat ${{ github.event_path }} | jq '.pull_request.assignees | length')
-            if [[ 0 == $assignee_count ]]; then
-              assignees=$(echo "\"${ASSIGNEES// /}\"" | jq 'split(",")')
-              curl -X POST \
-                  -H "Content-Type: application/json" \
-                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                  -d "{ \"assignees\": $assignees }" \
-                  https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/assignees
-            fi
+      - name: Auto Assign Action
+        uses: kentaro-m/auto-assign-action@v1.1.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"

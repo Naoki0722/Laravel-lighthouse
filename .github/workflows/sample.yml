@@ -1,0 +1,14 @@
+name: sample workflow on pull-request
+
+on:
+  pull_request:
+
+jobs:
+  helloWorld:
+    name: Hello World Job
+    runs-on: ubuntu-18.04
+    run: echo "Hello World"
+  HogeFuga:
+    name: Hoge Fuga Job
+    runs-on: ubuntu-18.04
+    run: echo "hoge fuga"
