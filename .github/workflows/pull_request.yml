@@ -1,4 +1,4 @@
-name: Create Pullrequest
+name: Create Pullrequest Assign
 on:
   pull_request:
     types: [opened, ready_for_review]
