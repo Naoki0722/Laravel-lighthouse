@@ -59,5 +59,5 @@ return [
     |
     */
 
-    'enabled' => env('GRAPHQL_PLAYGROUND_ENABLED', true),
+    'enabled' => env('GRAPHQL_PLAYGROUND_ENABLED', env('APP_ENV') == 'local'),
 ];

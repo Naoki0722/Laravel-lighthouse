@@ -20,6 +20,7 @@ type Query {
     # リゾルバに書くパターン(二種類の記法あり)
     UserResolver(id: ID!): String!
     test(id: ID): User @field(resolver: "UserResolver@findByIdUser")
+    me: User @auth
 }
 
 type Mutation {
@@ -28,8 +29,8 @@ type Mutation {
     updateUser(id: ID!, name: String!, email: String!): User @update
     destroyUser(id: ID!): User @delete
     destroyUsers(id: [ID!]!): [User] @delete
-    userLogin(email: String!, password: String!): User!
-    # userLogout(): User!
+    login(email: String!, password: String!): User!
+    logout: User @guard
 }
 
 
