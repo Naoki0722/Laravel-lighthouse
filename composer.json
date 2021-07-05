@@ -12,8 +12,10 @@
         "laravel/framework": "^8.40",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.5",
         "mll-lab/laravel-graphql-playground": "^2.5",
-        "nuwave/lighthouse": "^5.13"
+        "nuwave/lighthouse": "^5.13",
+        "seus31/zip-code-auto-fill": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
