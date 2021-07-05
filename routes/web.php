@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    $user = Auth::loginUsingId(50);
+    return view('welcome');
+    // $user = Auth::loginUsingId(50);
 
-    $token = $user->createToken('test');
+    // $token = $user->createToken('test');
 
-    return ['token' => $token->plainTextToken];
+    // return ['token' => $token->plainTextToken];
 });
 
 
