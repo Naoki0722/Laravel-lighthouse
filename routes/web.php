@@ -27,6 +27,7 @@ Route::get('/', function () {
 
 
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     dd(Auth::user());
     return $request->user();
@@ -42,6 +43,6 @@ Route::get('/user/delete', function () {
 Route::get('/samplejob', [Sample::class, 'job']);
 
 
-// Route::get('/userConfirm', function() {
-//     dd(Auth::user());
-// });
+Route::get('/postal-code', function () {
+    return view('postalcode.index');
+});
