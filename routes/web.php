@@ -26,6 +26,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/test', function() {
+    return view('test');
+});
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     dd(Auth::user());
@@ -45,3 +50,7 @@ Route::get('/samplejob', [Sample::class, 'job']);
 // Route::get('/userConfirm', function() {
 //     dd(Auth::user());
 // });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
