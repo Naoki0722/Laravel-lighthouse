@@ -2,4 +2,5 @@
 
 @section('content')
 <navbar></navbar>
+<livewire:counter />
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\Sample;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ Route::get('/test', function() {
     return view('test');
 });
 
+Route::get('/post/{id}/edit', [PostsController::class, 'edit']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
