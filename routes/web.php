@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\Sample;
 use Illuminate\Support\Facades\Route;
@@ -19,11 +20,6 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
-    // $user = Auth::loginUsingId(50);
-
-    // $token = $user->createToken('test');
-
-    // return ['token' => $token->plainTextToken];
 });
 
 
@@ -56,3 +52,8 @@ Route::get('/samplejob', [Sample::class, 'job']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/movie',[MoviesController::class, 'show'])->name('movie.show');
+Route::get('/movie/register',[MoviesController::class, 'index'])->name('movie');
+Route::post('/movie/register',[MoviesController::class, 'register'])->name('moviePost');
